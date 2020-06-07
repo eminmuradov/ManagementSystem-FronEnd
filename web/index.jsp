@@ -37,7 +37,7 @@
             <input id="add-student-btn" class="add-student" type="button" value="Add Student" onclick="addStudentBtn()">
         </div>
 
-        <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+        <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 
         <div id="upload-div" style="float: right">
             <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
