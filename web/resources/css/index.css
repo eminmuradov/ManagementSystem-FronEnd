@@ -1,0 +1,28 @@
+.header{
+    border:  2px solid ;
+    width: auto;
+    height: 50px;
+    background-color: cornflowerblue
+}
+.content{
+    border:  2px solid;
+    width: auto;
+    height: 500px;
+    background-color: cornflowerblue
+}
+
+.add-student{
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 120px;
+    height: 30px;
+    background-color: chartreuse;
+}
+
+.footer{
+    border:  2px solid;
+    width: auto;
+    height:60px;
+    background-color: cornflowerblue
+}
+
