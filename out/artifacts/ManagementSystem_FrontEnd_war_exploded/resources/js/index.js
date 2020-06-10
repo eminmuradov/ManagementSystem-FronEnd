@@ -29,6 +29,7 @@ function addStudentBtn() {
 
 $(document).ready(function () {
     $('#add-student-btn').click(function () {
+
         location.reload();
     })
 });
@@ -47,8 +48,8 @@ function addFile() {
         contentType: false,
         cache: false,
         success: function (data) {
-            alert("File Upload Successfully!")
             $('#upload').click(function () {
+                alert("File Upload Successfully!")
                 location.reload();
             })
             console.log("SUCCESS : ", data);
@@ -75,11 +76,20 @@ $(document).ready(function () {
     })
 })
 
-$(document).ready(function(){
-    $("button").click(function(){
-        $.get( "/hello/{id}", function( data ) {
-            alert( "Delete was performed." );
-        });
-    });
-});
 
+function checkRole() {
+    const result = sessionStorage.getItem("role")
+    if (result === "ADMIN") {
+        $('#add-student').show()
+    } else {
+        $('#add-student').hide()
+    }
+}
+
+
+
+function logout() {
+    sessionStorage.clear()
+    window.location = "login.jsp"
+
+}

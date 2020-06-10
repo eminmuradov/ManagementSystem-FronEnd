@@ -26,6 +26,7 @@ function signUp() {
 
 $(document).ready(function () {
     $('#signUp').click(function () {
+        alert("Registration is successfully!")
         location.reload();
     })
 });
@@ -44,19 +45,17 @@ function login() {
         data: jsonData,
         contentType: "application/json",
         success: function (response) {
-            console.log(response)
+            console.log(response.data.role)
 
             if (response.responseStatus === 200 && response.data.role === 'ADMIN') {
                 $(document).ready(function () {
-                    sessionStorage.setItem('CURRENT_USER_ROLE', 'ADMIN');
-                    $('#add-student').show()
+                    sessionStorage.setItem("role",'ADMIN')
                     window.location = 'index.jsp';
                 });
 
             } else if (response.responseStatus === 200 && response.data.role === 'USER') {
                 $(document).ready(function () {
-                    sessionStorage.setItem('CURRENT_USER_ROLE', 'USER');
-                    $('#add-student').hide()
+                   sessionStorage.setItem('role', 'USER');
                     window.location = 'index.jsp';
                 });
             }
@@ -69,3 +68,13 @@ function login() {
         }
     });
 }
+
+
+
+function preventBack() {
+    window.history.forward();
+}
+window.onunload = function() {
+    null;
+};
+setTimeout("preventBack()", 0);

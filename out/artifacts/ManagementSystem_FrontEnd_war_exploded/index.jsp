@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>ManagementSystem</title>
@@ -17,13 +16,21 @@
     <script type="text/javascript" src="resources/js/login.js"></script>
     <script type="text/javascript" src="resources/js/index.js"></script>
 </head>
+<script>
+    $(document).ready(function () {
+     checkRole();
+    })
+</script>
 <body style="margin: 0px">
 
-<div id="header" class="header"></div>
+<div id="header" class="header">
+    <a onclick="logout()"><img src="resources/image/logout.png" style="width: 50px; float: right" > </a>
+</div>
 <div id="content" class="content" style="height: 1000px;">
 
+
     <div id="universal" style="width: auto;height: 165px;margin-top: 12px">
-        <div id="add-student"  style="float: left" class="${sessionScope.get("CURRENT_USER_ROLE")}">
+        <div id="add-student"  style="float: left; display: none" >
             <p style="margin-left: 10px;color: aqua">Student Info</p><br>
             <label>Name</label> <input id="name" name="name" type="text" placeholder="Name"
                                        style="margin-left: 25px"><br><br>
@@ -38,7 +45,7 @@
             <input id="add-student-btn" class="add-student" type="button" value="Add Student" onclick="addStudentBtn()">
         </div>
 
-        <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
+        <%--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--%>
 
         <div id="upload-div" style="float: right">
             <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
